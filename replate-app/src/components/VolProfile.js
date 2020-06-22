@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import useForm from '../hooks/inputForm';
+
+import UserContext from '../contexts/UserContext';
 
 import './volprofile.css';
 
 function VolProfile(props) {
 	//State
+
+	const userData = useContext(UserContext);
 
 	let [formState, setFormState, clearFormState] = useForm({
 		username: '',
@@ -20,17 +24,32 @@ function VolProfile(props) {
 			<form className="vol-profile-form">
 				<label>
 					Username
-					<input type="text" name="username" onChange={setFormState} />
+					<input
+						type="text"
+						name="username"
+						onChange={setFormState}
+						value={formState.username}
+					/>
 				</label>
 
 				<label>
-					Business Name
-					<input type="text" name="volunteerName" onChange={setFormState} />
+					Volunteer Name
+					<input
+						type="text"
+						name="volunteerName"
+						onChange={setFormState}
+						value={formState.volunteerName}
+					/>
 				</label>
 
 				<label>
 					Phone Number
-					<input type="text" name="phoneNumber" onChange={setFormState} />
+					<input
+						type="text"
+						name="phoneNumber"
+						onChange={setFormState}
+						value={formState.phoneNumber}
+					/>
 				</label>
 
 				<button>Update</button>
