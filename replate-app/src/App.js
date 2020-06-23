@@ -3,6 +3,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import BizProfile from './components/BizProfile';
 import volProfile from './components/VolProfile';
+import CreateBizProfile from './components/CreateBizProfile';
+import CreateVolProfile from './components/CreateVolProfile';
 
 import UserContext from './contexts/UserContext';
 
@@ -22,10 +24,9 @@ function App() {
 		<BrowserRouter>
 			<UserContext.Provider value={userData}>
 				<div className="App">
-          {' '}
-          {/* Change to private route later (component={}) - add turnary to show volProfile or bizProfile depending on account type that's signed in?*/}
-          {/* <BizProfile /> */}
-          {/* <VolProfile /> */}
+					{' '}
+					{/* Add turnary to show correct component for /create-profile and /profile depending on account type that's signed in*/}
+					<PrivateRoute exact path="/create-profile" component={CreateBizProfile} />
 					<PrivateRoute exact path="/profile" component={BizProfile} />
 				</div>
 			</UserContext.Provider>
