@@ -21,6 +21,12 @@ function VolProfile(props) {
 		<div>
 			<h1>Volunteer Profile</h1>
 
+			<div id="vol-profile-display">
+				<p>Username: </p>
+				<p>Volunteer Name: </p>
+				<p>Phone Number: </p>
+			</div>
+
 			<form className="vol-profile-form">
 				<label>
 					Username

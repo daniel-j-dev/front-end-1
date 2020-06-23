@@ -22,6 +22,13 @@ function BizProfile(props) {
 		<div>
 			<h1>Business Profile</h1>
 
+			<div id="biz-profile-display">
+				<p>Username: </p>
+				<p>Business Name: </p>
+				<p>Business Address: </p>
+				<p>Phone Number: </p>
+			</div>
+
 			<form className="biz-profile-form">
 				<label>
 					Username
