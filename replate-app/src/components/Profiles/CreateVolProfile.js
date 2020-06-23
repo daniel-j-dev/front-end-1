@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 
-import useForm from '../hooks/inputForm';
+import useForm from '../../hooks/inputForm';
 
-import UserContext from '../contexts/UserContext';
+import UserContext from '../../contexts/UserContext';
 
-import './volprofile.css';
-
-function VolProfile(props) {
+function CreateVolProfile(props) {
 	//State
 
 	const userData = useContext(UserContext);
@@ -14,18 +12,12 @@ function VolProfile(props) {
 	let [formState, setFormState, clearFormState] = useForm({
 		username: '',
 		volunteerName: '',
-		phoneNumber: ''
+		phoneNumber: '',
 	});
 
 	return (
 		<div>
-			<h1>Volunteer Profile</h1>
-
-			<div id="vol-profile-display">
-				<p>Username: </p>
-				<p>Volunteer Name: </p>
-				<p>Phone Number: </p>
-			</div>
+			<h1>Create a Volunteer Profile</h1>
 
 			<form className="vol-profile-form">
 				<label>
@@ -58,11 +50,10 @@ function VolProfile(props) {
 					/>
 				</label>
 
-				<button>Update</button>
-				<button>Delete Profile</button>
+				<button>Create</button>
 			</form>
 		</div>
 	);
 }
 
-export default VolProfile;
+export default CreateVolProfile;

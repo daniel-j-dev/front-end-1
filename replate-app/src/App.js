@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import BizProfile from './components/BizProfile';
-import volProfile from './components/VolProfile';
-import CreateBizProfile from './components/CreateBizProfile';
-import CreateVolProfile from './components/CreateVolProfile';
+import BizProfile from './components/Profiles/BizProfile';
+import volProfile from './components/Profiles/VolProfile';
+import CreateBizProfile from './components/Profiles/CreateBizProfile';
+import CreateVolProfile from './components/Profiles/CreateVolProfile';
 
 import UserContext from './contexts/UserContext';
 

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 
-import useForm from '../hooks/inputForm';
+import useForm from '../../hooks/inputForm';
 
-import UserContext from '../contexts/UserContext';
+import UserContext from '../../contexts/UserContext';
 
 function CreateBizProfile(props) {
 
