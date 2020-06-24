@@ -4,14 +4,16 @@ import './assignedpickuprequest.css';
 
 function AssignedPickupRequest(props) {
     return (
-        <div className="assigned-pickup-request">
-            <p>Food type: </p>
-            <p>Weight: </p>
-            <p>Pickup date: </p>
-            <button>Complete</button>
-            <button>Cancel</button>
-        </div>
-	);
+			<div className="assigned-pickup-request">
+				<p>Food type: </p>
+				<p>Weight: </p>
+				<p>Pickup date: </p>
+				<div className='assigned-pickup-request-controls'>
+					<button>Complete</button>
+					<button className='cancelBtn'>Cancel</button>
+				</div>
+			</div>
+		);
 }
 
 export default AssignedPickupRequest;

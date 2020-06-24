@@ -14,6 +14,7 @@ import UserContext from './contexts/UserContext';
 import PrivateRoute from './utils/PrivateRoute';
 
 import './App.css';
+import VolProfile from './components/Profiles/VolProfile';
 
 function App() {
 	let [userData, setUserData] = useState({
@@ -23,9 +24,8 @@ function App() {
 	return (
 		<BrowserRouter>
 			<UserContext.Provider value={userData}>
-
 				<NavigationBar />
-				
+
 				<div className="App">
 					{/* Add turnary to show correct component for /create-profile and /profile depending on account type that's signed in*/}
 					<PrivateRoute
@@ -34,6 +34,7 @@ function App() {
 						component={CreateBizProfile}
 					/>
 					<PrivateRoute exact path="/profile" component={BizProfile} />
+					{/* <PrivateRoute exact path="/profile" component={VolProfile} /> */}
 					<PrivateRoute exact path="/dashboard" component={Dashboard} />
 				</div>
 			</UserContext.Provider>

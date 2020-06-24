@@ -16,13 +16,24 @@ function Dashboard(props) {
 	//Map through data displaying as many IssuedPickupRequest or PublicPickupRequest components as needed
 	return (
 		<div>
-			<h1>Dashboard</h1>
+			<h1>Business Dashboard</h1>
 
 			<CreatePickupRequest />
 
 			<h2>Issued pick request(s)</h2>
 
 			<IssuedPickupRequest />
+
+			{/* <h1>Volunteer Dashboard</h1>
+
+			<h3>Assigned Pickup Requests</h3>
+
+				<AssignedPickupRequests />
+
+			<h3>Available Pickup Requests</h3>
+
+				<PublicPickupRequest /> */}
+
 		</div>
 	);
 }

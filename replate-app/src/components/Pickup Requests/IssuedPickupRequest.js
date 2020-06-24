@@ -14,11 +14,11 @@ function IssuedPickupRequest(props) {
 
 	let editRequest = (event) => {
 
-        let editForm = event.target.parentElement.parentElement.querySelector('form');
+        let editForm = event.target.parentElement.parentElement.parentElement.querySelector('form');
 
-        if(editForm.style.display !== 'block') {
+        if(editForm.style.display !== 'flex') {
 
-            editForm.style.display = 'block';
+            editForm.style.display = 'flex';
 
             event.target.textContent = "Cancel Edit"
 
@@ -29,24 +29,24 @@ function IssuedPickupRequest(props) {
             event.target.textContent = 'Edit'
 
         }
-        
-        
 
     };
 
 	return (
-		<div className='issued-pickup-request'>
+		<div className="issued-pickup-request">
 			<div>
 				<p>Food type: </p>
 				<p>Weight: </p>
 				<p>Pickup date: </p>
-				<button onClick={editRequest}>Edit</button>
-				<button>Delete</button>
+				<div className='pickup-request-controls'>
+					<button onClick={editRequest}>Edit</button>
+					<button className='delBtn'>Delete</button>
+				</div>
 			</div>
-			<form className='edit-pickup-request-form'>
+			<form className="edit-pickup-request-form">
 				Edit issued pickup request
 				<label>
-					Type of food:
+					<p>Type of food</p>
 					<input
 						type="text"
 						name="foodType"
@@ -55,7 +55,7 @@ function IssuedPickupRequest(props) {
 					/>
 				</label>
 				<label>
-					Amount in pounds:
+					<p>Amount in pounds</p>
 					<input
 						type="text"
 						name="foodWeight"
@@ -64,7 +64,7 @@ function IssuedPickupRequest(props) {
 					/>
 				</label>
 				<label>
-					Pickup Date:
+					<p>Pickup Date</p>
 					<input
 						type="datetime-local"
 						name="preferredPickupTime"

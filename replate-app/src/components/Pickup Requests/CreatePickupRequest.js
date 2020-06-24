@@ -1,6 +1,7 @@
 import React from 'react';
 import useForm from '../../hooks/useForm';
 
+import './createpickuprequest.css';
 
 
 function CreatePickupRequest(props) {
@@ -12,27 +13,37 @@ function CreatePickupRequest(props) {
         });
             
     return (
-			<div>
-				<form>
-					<h2>Create a pickup request</h2>
+			<div className="create-pickup-request">
+				<form className="create-pickup-request-form">
+					<h2>Create Pickup Request</h2>
 
 					<label>
-						Type of food:
-						<input type="text" name="foodType" onChange={setFormState} value={formState.foodType}/>
+						<p>Type of food</p>
+						<input
+							type="text"
+							name="foodType"
+							onChange={setFormState}
+							value={formState.foodType}
+						/>
 					</label>
 
 					<label>
-						Amount in pounds:
-						<input type="text" name="foodWeight" onChange={setFormState} value={formState.foodWeight}/>
+						<p>Amount in pounds</p>
+						<input
+							type="text"
+							name="foodWeight"
+							onChange={setFormState}
+							value={formState.foodWeight}
+						/>
 					</label>
 
 					<label>
-						Pickup Date:
+						<p>Pickup Date</p>
 						<input
 							type="datetime-local"
 							name="preferredPickupTime"
-                            onChange={setFormState}
-                            value={formState.preferredPickupTime}
+							onChange={setFormState}
+							value={formState.preferredPickupTime}
 						/>
 					</label>
 

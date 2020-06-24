@@ -21,7 +21,7 @@ function VolProfile(props) {
 		<div>
 			<h1>Volunteer Profile</h1>
 
-			<div id="vol-profile-display">
+			<div id="vol-profile-info">
 				<p>Username: </p>
 				<p>Volunteer Name: </p>
 				<p>Phone Number: </p>
@@ -29,7 +29,7 @@ function VolProfile(props) {
 
 			<form className="vol-profile-form">
 				<label>
-					Username
+					<p>Username</p>
 					<input
 						type="text"
 						name="username"
@@ -39,7 +39,7 @@ function VolProfile(props) {
 				</label>
 
 				<label>
-					Volunteer Name
+					<p>Volunteer Name</p>
 					<input
 						type="text"
 						name="volunteerName"
@@ -49,7 +49,7 @@ function VolProfile(props) {
 				</label>
 
 				<label>
-					Phone Number
+					<p>Phone Number</p>
 					<input
 						type="text"
 						name="phoneNumber"
@@ -57,9 +57,10 @@ function VolProfile(props) {
 						value={formState.phoneNumber}
 					/>
 				</label>
-
-				<button>Update</button>
-				<button>Delete Profile</button>
+				<div className="profile-controls">
+					<button>Update</button>
+					<button className='delProfile'>Delete Profile</button>
+				</div>
 			</form>
 		</div>
 	);

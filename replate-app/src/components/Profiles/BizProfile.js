@@ -22,7 +22,7 @@ function BizProfile(props) {
 		<div>
 			<h1>Business Profile</h1>
 
-			<div id="biz-profile-display">
+			<div id="biz-profile-info">
 				<p>Username: </p>
 				<p>Business Name: </p>
 				<p>Business Address: </p>
@@ -31,7 +31,7 @@ function BizProfile(props) {
 
 			<form className="biz-profile-form">
 				<label>
-					Username
+					<p>Username</p>
 					<input
 						type="text"
 						name="username"
@@ -41,7 +41,7 @@ function BizProfile(props) {
 				</label>
 
 				<label>
-					Business Name
+					<p>Business Name</p>
 					<input
 						type="text"
 						name="businessName"
@@ -51,7 +51,7 @@ function BizProfile(props) {
 				</label>
 
 				<label>
-					Business Address
+					<p>Business Address</p>
 					<input
 						type="text"
 						name="businessAddress"
@@ -61,7 +61,7 @@ function BizProfile(props) {
 				</label>
 
 				<label>
-					Phone Number
+					<p>Phone Number</p>
 					<input
 						type="text"
 						name="phoneNumber"
@@ -69,9 +69,10 @@ function BizProfile(props) {
 						value={formState.phoneNumber}
 					/>
 				</label>
-
-				<button>Update</button>
-				<button>Delete Profile</button>
+				<div className="profile-controls">
+					<button>Update</button>
+					<button className='delProfile'>Delete Profile</button>
+				</div>
 			</form>
 		</div>
 	);
