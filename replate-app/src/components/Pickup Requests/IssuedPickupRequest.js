@@ -35,7 +35,7 @@ function IssuedPickupRequest(props) {
     };
 
 	return (
-		<div>
+		<div className='issued-pickup-request'>
 			<div>
 				<p>Food type: </p>
 				<p>Weight: </p>

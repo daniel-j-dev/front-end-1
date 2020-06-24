@@ -20,10 +20,9 @@ function Dashboard(props) {
 
 			<CreatePickupRequest />
 
-            <h2>Issued pick request(s)</h2>
+			<h2>Issued pick request(s)</h2>
 
 			<IssuedPickupRequest />
-
 		</div>
 	);
 }
