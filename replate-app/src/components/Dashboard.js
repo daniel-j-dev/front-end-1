@@ -1,7 +1,15 @@
 import React from 'react';
+
+//Biz components
+
 import CreatePickupRequest from './Pickup Requests/CreatePickupRequest';
 import IssuedPickupRequest from './Pickup Requests/IssuedPickupRequest';
+
+//Vol components
+
 import PublicPickupRequest from './Pickup Requests/PublicPickupRequest';
+import AssignedPickupRequests from './Pickup Requests/AssignedPickupRequest';
+
 
 function Dashboard(props) {
 	//Turnary to render pickup requests on the dashboard if this the user signed in is a Volunteer or a form to make requests and a list of issued requests made by you if you're a business
