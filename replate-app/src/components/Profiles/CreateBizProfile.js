@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 
 import useForm from '../../hooks/useForm';
 
-import UserContext from '../../contexts/UserContext';
+import MainContext from '../../contexts/MainContext';
 
 function CreateBizProfile(props) {
 
-    const userData = useContext(UserContext);
+    const mainData = useContext(MainContext);
 
     	let [formState, setFormState, clearFormState] = useForm({
 				username: '',

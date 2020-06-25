@@ -1,15 +1,22 @@
 //This is just PublicPickupRequest... but with a delete button and edit functionality. Displayed on Business dashboard.
 
-import React from 'react';
+import React, { useContext } from 'react';
+
+import MainContext from '../../contexts/MainContext';
 import useForm from '../../hooks/useForm';
 
 import './IssuedPickupRequest.css';
 
 function IssuedPickupRequest(props) {
+
+	let {item, index} = props;
+
+	const { data, setData } = useContext(MainContext);
+
 	let [formState, setFormState, clearFormState] = useForm({
 		foodType: '',
-		foodWeight: '',
-		preferredPickupTime: '',
+		weight: '',
+		pickupDate: '',
 	});
 
 	let editRequest = (event) => {
@@ -30,20 +37,55 @@ function IssuedPickupRequest(props) {
 
         }
 
-    };
+	};
+	
+	let updatePickupRequest = event => {
+
+		event.preventDefault();
+
+		let newData = {
+			...data
+		}
+
+		newData.pickupRequests[index] = {
+			foodType: formState.foodType,
+			weight: formState.weight,
+			pickupDate: formState.pickupDate,
+			issuedBy: data.currAccount.username, //Biz acc username that issued it
+			requestStatus: 'Available', //Available, In Progress or Complete
+			assignedVolunteer: data.pickupRequests[index].assignedVolunteer,
+		}; 
+
+		setData(newData);
+
+	}
+
+	let delPickupRequest = event => {
+
+		event.preventDefault();
+
+		let newData = {
+			...data
+		}
+
+		newData.pickupRequests.splice(index,1);
+
+		setData(newData);
+
+	}
 
 	return (
 		<div className="issued-pickup-request">
 			<div>
-				<p>Food type: </p>
-				<p>Weight: </p>
-				<p>Pickup date: </p>
+				<p>Food type: {item.foodType}</p>
+				<p>Weight: {item.weight}</p>
+				<p>Pickup date: {item.pickupDate}</p>
 				<div className='pickup-request-controls'>
 					<button onClick={editRequest}>Edit</button>
-					<button className='delBtn'>Delete</button>
+					<button className='delBtn' onClick={delPickupRequest}>Delete</button>
 				</div>
 			</div>
-			<form className="edit-pickup-request-form">
+			<form className="edit-pickup-request-form" onSubmit={updatePickupRequest}>
 				Edit issued pickup request
 				<label>
 					<p>Type of food</p>
@@ -58,18 +100,18 @@ function IssuedPickupRequest(props) {
 					<p>Amount in pounds</p>
 					<input
 						type="text"
-						name="foodWeight"
+						name="weight"
 						onChange={setFormState}
-						value={formState.foodWeight}
+						value={formState.weight}
 					/>
 				</label>
 				<label>
 					<p>Pickup Date</p>
 					<input
 						type="datetime-local"
-						name="preferredPickupTime"
+						name="pickupDate"
 						onChange={setFormState}
-						value={formState.preferredPickupTime}
+						value={formState.pickupDate}
 					/>
 				</label>
 				<button>Save Changes</button>

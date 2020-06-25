@@ -8,7 +8,7 @@ function NavigationBar(props) {
 			<nav className="top-nav-bar">
 				<Link to="/dashboard">Dashboard</Link>
 				<Link to="/profile">Profile</Link>
-				<Link to="/logout">Logout</Link>
+				<Link to="/signin">Logout</Link>
 			</nav>
 		);
 }
