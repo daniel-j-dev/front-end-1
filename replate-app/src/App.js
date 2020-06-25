@@ -87,6 +87,8 @@ function App() {
 
 	}
 
+	document.title = 'Replate';
+
 	return (
 		<BrowserRouter>
 			<MainContext.Provider value={{ data, setData }}>
@@ -96,8 +98,8 @@ function App() {
 					<Route exact path="/">
 						<Redirect to="/signin" />
 					</Route>
-					<PrivateRoute exact path="/signup" component={Signup} />
-					<PrivateRoute exact path="/signin" component={Signin} />
+					<Route exact path="/signup" component={Signup} />
+					<Route exact path="/signin" component={Signin} />
 					<PrivateRoute
 						exact
 						path="/create-profile"

@@ -62,6 +62,8 @@ function Signin(props) {
 
 			});
 
+			localStorage.setItem('token', 'placeholderToken');
+
 			history.push('/dashboard');
 
 		} else {
