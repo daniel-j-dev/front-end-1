@@ -87,6 +87,8 @@ function App() {
 
 	}
 
+	document.title = 'Replate';
+
 	return (
 		<BrowserRouter>
 			<MainContext.Provider value={{ data, setData }}>
