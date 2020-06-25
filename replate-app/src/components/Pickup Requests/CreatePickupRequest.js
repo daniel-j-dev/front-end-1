@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import MainContext from '../../contexts/MainContext';
 import useForm from '../../hooks/useForm';
 
 import './createpickuprequest.css';
@@ -6,15 +8,43 @@ import './createpickuprequest.css';
 
 function CreatePickupRequest(props) {
 
+	const { data, setData } = useContext(MainContext);
+
     let [formState, setFormState, clearFormState] = useForm({
             foodType: '',
-            foodWeight: '',
+            weight: '',
             preferredPickupTime: '',
-        });
+	});
+		
+	let submitNewPickupRequest = event => {
+
+		event.preventDefault();
+
+		let newData = {
+			...data
+		}
+
+		newData.pickupRequests = [
+
+			...data.pickupRequests,
+			{
+				foodType: formState.foodType,
+				weight: formState.weight,
+				pickupDate: formState.preferredPickupTime,
+				issuedBy: data.currAccount.username, //Biz acc name that issued it
+				requestStatus: 'Available', //Available, In Progress or Complete
+				assignedVolunteer: '',
+			}
+
+		]
+
+		setData(newData);
+
+	}
             
     return (
 			<div className="create-pickup-request">
-				<form className="create-pickup-request-form">
+				<form className="create-pickup-request-form" onSubmit={submitNewPickupRequest}>
 					<h2>Create Pickup Request</h2>
 
 					<label>
@@ -31,9 +61,9 @@ function CreatePickupRequest(props) {
 						<p>Amount in pounds</p>
 						<input
 							type="text"
-							name="foodWeight"
+							name="weight"
 							onChange={setFormState}
-							value={formState.foodWeight}
+							value={formState.weight}
 						/>
 					</label>
 

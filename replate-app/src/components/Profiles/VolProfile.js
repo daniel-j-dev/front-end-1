@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 
 import useForm from '../../hooks/useForm';
 
-import UserContext from '../../contexts/UserContext';
+import MainContext from '../../contexts/MainContext';
 
 import './volprofile.css';
 
 function VolProfile(props) {
 	//State
 
-	const userData = useContext(UserContext);
+	const { data, setData } = useContext(MainContext);
 
 	let [formState, setFormState, clearFormState] = useForm({
 		username: '',
@@ -17,14 +17,49 @@ function VolProfile(props) {
 		phoneNumber: ''
 	});
 
+	let updateProfile = (event) => {
+		event.preventDefault();
+
+		let newData = {
+			...data,
+		};
+
+		newData.currAccount = {
+			...data.currAccount,
+			...formState,
+		};
+
+		setData(newData);
+	};
+
+	let delProfile = (event) => {
+		event.preventDefault();
+
+		let newData = {
+			...data,
+		};
+
+		newData.currAccount = {
+			...data.currAccount,
+			username: '',
+			businessName: '',
+			businessAddress: '',
+			volunteerName: '',
+			phoneNumber: '',
+		};
+
+		setData(newData);
+	};
+
+
 	return (
 		<div>
 			<h1>Volunteer Profile</h1>
 
 			<div id="vol-profile-info">
-				<p>Username: </p>
-				<p>Volunteer Name: </p>
-				<p>Phone Number: </p>
+				<p>Username: {data.currAccount.username}</p>
+				<p>Volunteer Name: {data.currAccount.volunteerName}</p>
+				<p>Phone Number: {data.currAccount.phoneNumber}</p>
 			</div>
 
 			<form className="vol-profile-form">
@@ -58,8 +93,8 @@ function VolProfile(props) {
 					/>
 				</label>
 				<div className="profile-controls">
-					<button>Update</button>
-					<button className='delProfile'>Delete Profile</button>
+					<button onClick={updateProfile}>Update</button>
+					<button className="delProfile" onClick={delProfile}>Delete Profile</button>
 				</div>
 			</form>
 		</div>

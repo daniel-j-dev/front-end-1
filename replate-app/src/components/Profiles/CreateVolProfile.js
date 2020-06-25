@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 
 import useForm from '../../hooks/useForm';
 
-import UserContext from '../../contexts/UserContext';
+import MainContext from '../../contexts/MainContext';
 
 function CreateVolProfile(props) {
 	//State
 
-	const userData = useContext(UserContext);
+	const mainData = useContext(MainContext);
 
 	let [formState, setFormState, clearFormState] = useForm({
 		username: '',

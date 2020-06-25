@@ -2,31 +2,69 @@ import React, { useContext } from 'react';
 
 import useForm from '../../hooks/useForm';
 
-import UserContext from '../../contexts/UserContext';
+import MainContext from '../../contexts/MainContext';
 
 import './bizprofile.css';
 
 function BizProfile(props) {
 	//State
 
-	const userData = useContext(UserContext);
+	const {data, setData} = useContext(MainContext);
 
 	let [formState, setFormState, clearFormState] = useForm({
 		username: '',
 		businessName: '',
 		businessAddress: '',
+		volunteerName: '',
 		phoneNumber: '',
 	});
+
+	let updateProfile = event => {
+
+		event.preventDefault();
+
+		let newData = {
+			...data
+		}
+
+		newData.currAccount = {
+			...data.currAccount,
+			...formState
+		}
+
+		setData(newData);
+
+	}
+
+	let delProfile = event => {
+
+		event.preventDefault();
+
+		let newData = {
+			...data,
+		};
+
+		newData.currAccount = {
+			...data.currAccount,
+			username: '',
+			businessName: '',
+			businessAddress: '',
+			phoneNumber: '',
+		};
+
+		setData(newData);
+
+	}
 
 	return (
 		<div>
 			<h1>Business Profile</h1>
 
 			<div id="biz-profile-info">
-				<p>Username: </p>
-				<p>Business Name: </p>
-				<p>Business Address: </p>
-				<p>Phone Number: </p>
+				<p>Username: {data.currAccount.username}</p>
+				<p>Business Name: {data.currAccount.businessName}</p>
+				<p>Business Address: {data.currAccount.businessAddress}</p>
+				<p>Phone Number: {data.currAccount.phoneNumber}</p>
 			</div>
 
 			<form className="biz-profile-form">
@@ -70,8 +108,8 @@ function BizProfile(props) {
 					/>
 				</label>
 				<div className="profile-controls">
-					<button>Update</button>
-					<button className='delProfile'>Delete Profile</button>
+					<button onClick={updateProfile}>Update</button>
+					<button className="delProfile" onClick={delProfile}>Delete Profile</button>
 				</div>
 			</form>
 		</div>
