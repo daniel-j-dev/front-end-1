@@ -1,6 +1,6 @@
 ### Frontend demo for Replate
 
-Visit this link: https://build-week-replate.vercel.app/
+Visit this link: https://build-week-replate.now.sh/signin
 
 ### Signin details
 
